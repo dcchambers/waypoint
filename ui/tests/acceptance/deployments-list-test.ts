@@ -31,7 +31,7 @@ module('Acceptance | deployments list', function (hooks) {
     await page.visit();
 
     assert.equal(page.list.length, 3);
-    assert.equal(currentURL(), redirectUrl + 3);
+    assert.equal(currentURL(), redirectUrl + '3');
   });
 
   test('empty deployments list provides empty state ui', async function (assert) {
@@ -42,6 +42,7 @@ module('Acceptance | deployments list', function (hooks) {
 
     assert.equal(page.list.length, 0);
     assert.equal(currentURL(), emptyStateUrl);
+    assert.dom('.empty-state').exists();
   });
 
   test('clicking a different deployment moves us to that details page', async function (assert) {
